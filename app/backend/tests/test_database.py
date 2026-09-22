@@ -91,20 +91,6 @@ async def test_append_conversation_message_raises_for_unknown_session(db_path):
 
 
 @pytest.mark.asyncio
-async def test_telegram_session_linking(db_path):
-    session_id = str(uuid.uuid4())
-    await database.create_session(session_id, db_path=db_path)
-    await database.set_telegram_session(
-        session_id, telegram_user_id="12345", db_path=db_path
-    )
-
-    latest = await database.get_latest_session_for_telegram_user(
-        "12345", db_path=db_path
-    )
-    assert latest == session_id
-
-
-@pytest.mark.asyncio
 async def test_mark_session_failed_sets_status(db_path):
     session_id = str(uuid.uuid4())
     await database.create_session(session_id, db_path=db_path)

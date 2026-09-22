@@ -1,8 +1,7 @@
 """POST /api/coach/{id} — chat conversazionale con l'Assistente Educativo.
 
-Usato sia dalla web app che dal bot Telegram (stesso Agent 5, stessa
-Sessione). La guardia anti-consulenza (`is_investment_advice_request`) e'
-applicata dentro `EducationalCoachAgent.chat` prima di qualunque chiamata LLM.
+La guardia anti-consulenza (`is_investment_advice_request`) e' applicata
+dentro `EducationalCoachAgent.chat` prima di qualunque chiamata LLM.
 """
 
 from __future__ import annotations

@@ -11,7 +11,7 @@ Vedi `PLAN.md` per l'architettura completa, `CONTEXT.md` per il glossario di dom
 
 ```
 agents/            # I 5 agenti della pipeline + orchestrator (Python, no framework)
-app/backend/        # FastAPI: routes, database (SQLite), bot Telegram
+app/backend/        # FastAPI: routes, database (SQLite)
 app/frontend/        # Next.js 14 + Tailwind + Recharts
 data/               # categories.json, istat_benchmarks.json, estratti conto di esempio
 docs/adr/           # Decisioni architetturali
@@ -38,15 +38,7 @@ uvicorn app.backend.main:app --reload --port 8000
 Test:
 
 ```bash
-pytest        # 54 test: agenti, orchestrator, database, route FastAPI, bot Telegram
-```
-
-### Bot Telegram
-
-```bash
-export TELEGRAM_BOT_TOKEN=...
-export FRONTEND_URL=http://localhost:3000
-python -m app.backend.telegram_bot
+pytest        # test: agenti, orchestrator, database, route FastAPI
 ```
 
 ## Frontend
@@ -63,8 +55,8 @@ alla dashboard.
 
 ## Verifiche end-to-end effettuate
 
-- `pytest` (54 test) su parsing CSV/PDF, categorizzazione, aggregati, insight, guardia
-  anti-consulenza del coach, persistenza SQLite, route FastAPI, handler del bot Telegram.
+- `pytest` su parsing CSV/PDF, categorizzazione, aggregati, insight, guardia
+  anti-consulenza del coach, persistenza SQLite, route FastAPI.
 - Pipeline completa testata offline (senza `ANTHROPIC_API_KEY`) sui 3 CSV di esempio in
   `data/sample/`: categorizzazione corretta, aggregati coerenti, insight generati, intro del
   coach generata.
@@ -96,7 +88,7 @@ alla dashboard.
 
 Come da `docs/adr/0004-deploy-railway-vercel.md`:
 
-- **Backend** (FastAPI + bot Telegram) → Railway. Variabili: `ANTHROPIC_API_KEY`,
-  `TELEGRAM_BOT_TOKEN`, `DATABASE_PATH` (volume persistente), `FRONTEND_URL`.
+- **Backend** (FastAPI) → Railway. Variabili: `ANTHROPIC_API_KEY`,
+  `DATABASE_PATH` (volume persistente), `FRONTEND_URL`.
 - **Frontend** (Next.js) → Vercel, root directory `app/frontend`. Variabile:
   `NEXT_PUBLIC_API_URL`.

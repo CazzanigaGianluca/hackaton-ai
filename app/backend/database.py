@@ -1,8 +1,7 @@
 """Schema SQLite e helper aiosqlite per la persistenza delle Sessioni.
 
-Una Sessione e' l'unita' condivisa tra bot Telegram e web app: raggruppa
-Transazioni, Pattern di Spesa, Insight e la storia della conversazione con
-l'Assistente Educativo (vedi CONTEXT.md).
+Una Sessione raggruppa Transazioni, Pattern di Spesa, Insight e la storia
+della conversazione con l'Assistente Educativo (vedi CONTEXT.md).
 """
 
 from __future__ import annotations
@@ -24,8 +23,7 @@ CREATE TABLE IF NOT EXISTS sessions (
     analysis_json TEXT,
     insights_json TEXT NOT NULL DEFAULT '[]',
     coach_intro TEXT,
-    conversation_json TEXT NOT NULL DEFAULT '[]',
-    telegram_user_id TEXT
+    conversation_json TEXT NOT NULL DEFAULT '[]'
 );
 """
 
@@ -145,29 +143,3 @@ async def append_conversation_message(
             raise
         else:
             await db.execute("COMMIT")
-
-
-async def set_telegram_session(
-    session_id: str, telegram_user_id: str, db_path: str | None = None
-) -> None:
-    async with aiosqlite.connect(db_path or DATABASE_PATH) as db:
-        await db.execute(
-            "UPDATE sessions SET telegram_user_id = ? WHERE session_id = ?",
-            (str(telegram_user_id), session_id),
-        )
-        await db.commit()
-
-
-async def get_latest_session_for_telegram_user(
-    telegram_user_id: str, db_path: str | None = None
-) -> str | None:
-    async with aiosqlite.connect(db_path or DATABASE_PATH) as db:
-        db.row_factory = aiosqlite.Row
-        cursor = await db.execute(
-            """SELECT session_id FROM sessions
-               WHERE telegram_user_id = ?
-               ORDER BY created_at DESC LIMIT 1""",
-            (str(telegram_user_id),),
-        )
-        row = await cursor.fetchone()
-        return row["session_id"] if row else None
