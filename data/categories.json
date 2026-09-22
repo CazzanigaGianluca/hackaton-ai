@@ -1,0 +1,38 @@
+{
+  "Alimentari": [
+    "CONAD", "ESSELUNGA", "COOP", "CARREFOUR", "LIDL", "EUROSPIN", "PAM",
+    "SUPERMERCAT", "ALIMENTARI", "MACELLERIA", "PANETTERIA", "FRUTTA"
+  ],
+  "Ristorazione": [
+    "RISTORANTE", "PIZZERIA", "BAR ", "TRATTORIA", "MCDONALD", "BURGER",
+    "SUSHI", "KEBAB", "GLOVO", "DELIVEROO", "JUST EAT", "UBER EATS", "GELATERIA"
+  ],
+  "Trasporti": [
+    "ATM", "TRENITALIA", "ITALO", "ENI", "ESSO", "Q8", "AUTOSTRADE",
+    "PARCHEGGIO", "TAXI", "UBER", "GLS", "FERROVIE", "BENZINA", "CARBURANTE"
+  ],
+  "Utenze": [
+    "ENEL", "ENI GAS", "A2A", "ACEA", "TIM", "VODAFONE", "WINDTRE", "FASTWEB",
+    "ILIAD", "CONDOMINIO", "AFFITTO", "GAS", "ACQUA", "LUCE"
+  ],
+  "Abbigliamento": [
+    "ZARA", "H&M", "OVS", "DECATHLON", "NIKE", "ADIDAS", "CALZEDONIA", "ABBIGLIAMENTO"
+  ],
+  "Intrattenimento": [
+    "NETFLIX", "SPOTIFY", "DISNEY", "AMAZON PRIME", "CINEMA", "TEATRO",
+    "STEAM", "PLAYSTATION", "XBOX", "APPLE MUSIC", "DAZN"
+  ],
+  "Salute": [
+    "FARMACIA", "PARAFARMACIA", "OSPEDALE", "STUDIO MEDICO", "DENTISTA", "ASL"
+  ],
+  "Shopping Online": [
+    "AMAZON", "EBAY", "ZALANDO", "ASOS", "SHEIN", "ALIEXPRESS"
+  ],
+  "Commissioni Bancarie": [
+    "COMMISSIONE", "CANONE", "BOLLO", "IMPOSTA DI BOLLO", "SPESE TENUTA CONTO"
+  ],
+  "Stipendio/Entrate": [
+    "STIPENDIO", "BONIFICO RICEVUTO", "RIMBORSO", "ACCREDITO", "PENSIONE"
+  ],
+  "Altro": []
+}

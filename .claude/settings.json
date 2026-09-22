@@ -1,0 +1,25 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cd \"$CLAUDE_PROJECT_DIR\" && .venv/bin/ruff check . --fix --quiet 2>/dev/null; .venv/bin/ruff format --quiet . 2>/dev/null || true"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '## '$(date '+%Y-%m-%d %H:%M')' - Task completed' >> \"$CLAUDE_PROJECT_DIR/PROGRESS.md\""
+          }
+        ]
+      }
+    ]
+  }
+}

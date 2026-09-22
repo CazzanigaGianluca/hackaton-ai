@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.env
+*.db
+*.db-journal
+node_modules/
+.next/
+out/
+.DS_Store
+PROGRESS.md
