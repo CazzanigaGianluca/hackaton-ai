@@ -22,7 +22,7 @@
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
   }
-  .wrap { max-width: 960px; margin: 0 auto; padding: 48px 24px 80px; }
+  .wrap { max-width: 920px; margin: 0 auto; padding: 48px 24px 80px; }
   .brand {
     display: flex; align-items: center; justify-content: space-between;
     gap: 16px; margin-bottom: 40px;
@@ -45,7 +45,7 @@
     background: linear-gradient(90deg, var(--purple-light), var(--purple));
     -webkit-background-clip: text; background-clip: text; color: transparent;
   }
-  .hero p.tagline { max-width: 640px; margin: 0 auto; color: rgba(255,255,255,0.65); font-size: 16px; }
+  .hero p.tagline { max-width: 620px; margin: 0 auto; color: rgba(255,255,255,0.65); font-size: 17px; }
   .hero .team { margin-top: 18px; font-size: 12px; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.15em; }
 
   section {
@@ -55,14 +55,12 @@
     padding: 32px;
     margin-bottom: 28px;
   }
-  section.plain { border: none; background: none; padding: 0 4px; margin-bottom: 40px; }
   .sec-head { border-bottom: 1px solid rgba(161,0,255,0.25); padding-bottom: 16px; margin-bottom: 20px; }
   .sec-num { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.25em; color: var(--purple-light); }
-  .sec-head h2 { font-size: 26px; font-weight: 700; letter-spacing: -0.02em; margin: 6px 0 0; }
+  .sec-head h2 { font-size: 27px; font-weight: 700; letter-spacing: -0.02em; margin: 6px 0 0; }
   .lead { font-size: 17px; color: rgba(255,255,255,0.85); }
   .focus { font-style: italic; color: rgba(255,255,255,0.5); font-size: 14px; }
 
-  h3 { font-size: 12px; text-transform: uppercase; letter-spacing: 0.2em; color: var(--purple-light); margin: 0 0 8px; }
   h4 { font-size: 12px; text-transform: uppercase; letter-spacing: 0.2em; color: rgba(255,255,255,0.4); margin: 24px 0 12px; }
 
   .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
@@ -107,43 +105,12 @@
   .legend div { margin-bottom: 3px; }
   .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; }
 
-  /* Pipeline */
-  .pipeline { display: flex; flex-direction: column; gap: 10px; margin-top: 4px; }
-  .stage {
-    display: grid; grid-template-columns: 40px 140px 1fr auto; gap: 14px; align-items: center;
-    border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.03);
-    border-radius: 10px; padding: 12px 16px;
-  }
-  .stage .num { font-weight: 700; color: var(--purple-light); font-size: 14px; }
-  .stage .name { font-weight: 600; font-size: 14px; }
-  .stage .role { color: rgba(255,255,255,0.55); font-size: 13px; }
-  .stage .model {
-    font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em;
-    border: 1px solid rgba(255,255,255,0.15); border-radius: 999px; padding: 3px 10px;
-    color: rgba(255,255,255,0.5); white-space: nowrap;
-  }
-  .stage .model.sonnet { border-color: rgba(161,0,255,0.4); color: var(--purple-light); }
-  .arrow-down { text-align: center; color: rgba(255,255,255,0.25); font-size: 13px; }
+  /* Outcomes */
+  .outcomes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .outcome { border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03); border-radius: 12px; padding: 18px; text-align: center; }
+  .outcome .big { font-size: 26px; font-weight: 700; color: var(--purple-light); }
+  .outcome .cap { margin-top: 8px; font-size: 13px; color: rgba(255,255,255,0.65); }
 
-  /* Channels */
-  .channels { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 4px; }
-  .channel { border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03); border-radius: 12px; padding: 18px 20px; }
-  .channel .ico { font-size: 22px; }
-  .channel h5 { margin: 8px 0 4px; font-size: 15px; }
-  .channel p { margin: 0; font-size: 13px; color: rgba(255,255,255,0.55); }
-
-  .deliverables { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-  .deliverable { border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03); border-radius: 12px; padding: 16px; }
-  .d-num { font-size: 13px; font-weight: 700; color: var(--purple-light); }
-  .deliverable h5 { font-size: 14px; font-weight: 600; margin: 6px 0 6px; }
-  .deliverable p { font-size: 13px; color: rgba(255,255,255,0.55); margin: 0; }
-
-  .avoid {
-    border: 1px solid rgba(255,80,160,0.2);
-    background: rgba(255,80,160,0.05);
-    border-radius: 12px; padding: 18px 20px; margin-top: 24px;
-  }
-  .avoid h4 { color: rgba(255,80,160,0.8); margin-top: 0; }
   .guard {
     border: 1px solid rgba(61,214,140,0.25);
     background: rgba(61,214,140,0.06);
@@ -151,17 +118,11 @@
   }
   .guard h4 { color: var(--green); margin-top: 0; }
 
-  .stack-table { width: 100%; border-collapse: collapse; font-size: 13px; }
-  .stack-table td { padding: 8px 10px; border-bottom: 1px solid rgba(255,255,255,0.08); color: rgba(255,255,255,0.7); }
-  .stack-table td:first-child { color: rgba(255,255,255,0.4); text-transform: uppercase; font-size: 11px; letter-spacing: 0.1em; width: 30%; }
-
   footer { text-align: center; margin-top: 40px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.2em; color: rgba(255,255,255,0.25); }
   footer .mark { color: var(--purple); }
 
   @media (max-width: 640px) {
-    .cols, .deliverables, .ba, .channels { grid-template-columns: 1fr; }
-    .stage { grid-template-columns: 30px 1fr; grid-template-rows: auto auto; }
-    .stage .model { grid-column: 2; justify-self: start; }
+    .cols, .ba, .outcomes { grid-template-columns: 1fr; }
     .hero h1 { font-size: 30px; }
   }
   @media print {
@@ -197,21 +158,21 @@
       <div class="persona">
         <div class="avatar">FM</div>
         <div>
-          <div class="name">Famiglia Moretti — 2 adulti, reddito medio, due conti correnti</div>
-          <div class="desc">A fine mese non riescono a dire dove sono finiti i soldi. Non distinguono le spese fisse da quelle variabili, non si accorgono degli abbonamenti che si accumulano, non hanno mai confrontato la propria spesa con una media di riferimento. L'estratto conto è una tabella di 80 righe con descrizioni bancarie criptiche ("PAG POS 04521 CONAD SPA").</div>
+          <div class="name">Famiglia Moretti — 2 adulti, reddito medio</div>
+          <div class="desc">A fine mese non riescono a dire dove sono finiti i soldi. Non distinguono le spese fisse da quelle variabili, non si accorgono degli abbonamenti che si accumulano, non hanno mai confrontato la propria spesa con una media di riferimento.</div>
         </div>
       </div>
 
-      <p class="focus">Non è un problema di dati mancanti — i dati ci sono già, nell'estratto conto. È un problema di alfabetizzazione finanziaria: leggere, categorizzare e capire quei numeri richiede tempo e competenze che una famiglia media non ha.</p>
+      <p class="focus">Non è un problema di dati mancanti: l'estratto conto contiene già tutto. È un problema di alfabetizzazione finanziaria — leggere, capire e collegare quei numeri a scelte quotidiane richiede tempo e competenze che una famiglia media non ha.</p>
     </section>
 
     <!-- 2. Soluzione / Before-After -->
     <section>
       <header class="sec-head">
         <span class="sec-num">02 · La soluzione</span>
-        <h2>Da estratto conto grezzo a dashboard educativa</h2>
+        <h2>Un compagno che legge l'estratto conto con te</h2>
       </header>
-      <p class="lead">Carichi l'estratto conto (CSV o PDF) via web o Telegram. Una pipeline di agenti Claude lo legge, categorizza ogni transazione, calcola i pattern di spesa e li confronta con i benchmark ISTAT. Un coach educativo spiega tutto in linguaggio semplice — senza mai dare consigli di investimento.</p>
+      <p class="lead">Carichi il tuo estratto conto e la webapp lo trasforma in qualcosa che puoi davvero capire: quanto spendi, in cosa, e come si confronta con la media delle famiglie italiane. Un assistente educativo ti accompagna e risponde alle tue domande in linguaggio semplice, senza mai dirti cosa fare con i tuoi soldi.</p>
 
       <div class="ba">
         <div class="ba-card before">
@@ -220,78 +181,48 @@
           <div class="mock-row"><span>16/01 SDD RID NETFLIX ABBON.</span><span>-17,99</span></div>
           <div class="mock-row"><span>18/01 PRELIEVO BANCOMAT ATM 331</span><span>-100,00</span></div>
           <div class="mock-row"><span>20/01 CANONE MENSILE CONTO</span><span>-6,50</span></div>
-          <p>80 righe così, senza categorie, senza trend, senza confronto.</p>
+          <p>Righe su righe di sigle bancarie, senza un senso d'insieme.</p>
         </div>
         <div class="ba-card after">
           <span class="tag">Dopo</span>
           <div class="donut-mock">
             <div class="donut"></div>
             <div class="legend">
-              <div><span class="dot" style="background:var(--purple)"></span>Abitazione &amp; Utenze 36%</div>
+              <div><span class="dot" style="background:var(--purple)"></span>Casa &amp; Utenze 36%</div>
               <div><span class="dot" style="background:var(--rose)"></span>Ristorazione 18%</div>
               <div><span class="dot" style="background:var(--purple-light)"></span>Trasporti 19%</div>
               <div><span class="dot" style="background:rgba(255,255,255,0.15)"></span>Altro 27%</div>
             </div>
           </div>
-          <p>"Spendi il 18% in Ristorazione, la media ISTAT è 8%. Alcune famiglie in questa situazione trovano utile pianificare i pasti fuori casa in anticipo."</p>
+          <p>"Spendi il 18% in Ristorazione, la media delle famiglie italiane è 8%. Alcune famiglie in questa situazione trovano utile pianificare i pasti fuori casa in anticipo."</p>
         </div>
       </div>
     </section>
 
-    <!-- 3. Pipeline agentica -->
+    <!-- 3. Cosa vive l'utente -->
     <section>
       <header class="sec-head">
-        <span class="sec-num">03 · Come funziona</span>
-        <h2>Pipeline a 5 agenti</h2>
+        <span class="sec-num">03 · L'esperienza</span>
+        <h2>Dal caricamento alla consapevolezza</h2>
       </header>
-      <div class="pipeline">
-        <div class="stage">
-          <span class="num">01</span>
-          <span class="name">DocumentParser</span>
-          <span class="role">Estrae le transazioni da CSV o PDF dell'estratto conto</span>
-          <span class="model">Haiku</span>
+      <div class="cols">
+        <div>
+          <h4>Cosa fai</h4>
+          <ul class="bullets ok-list">
+            <li>Carichi l'estratto conto, anche di più mesi</li>
+            <li>Vedi in pochi secondi dove va il tuo denaro, categoria per categoria</li>
+            <li>Confronti le tue abitudini con la media delle famiglie italiane</li>
+            <li>Chiedi all'assistente educativo di spiegarti ciò che non capisci</li>
+          </ul>
         </div>
-        <div class="arrow-down">↓</div>
-        <div class="stage">
-          <span class="num">02</span>
-          <span class="name">Categorizer</span>
-          <span class="role">Assegna una categoria a ogni transazione (Alimentari, Ristorazione, Utenze...)</span>
-          <span class="model">Haiku</span>
-        </div>
-        <div class="arrow-down">↓</div>
-        <div class="stage">
-          <span class="num">03</span>
-          <span class="name">DataAnalyzer</span>
-          <span class="role">Calcola aggregati, trend e confronto con benchmark ISTAT</span>
-          <span class="model sonnet">Sonnet</span>
-        </div>
-        <div class="arrow-down">↓</div>
-        <div class="stage">
-          <span class="num">04</span>
-          <span class="name">InsightGenerator</span>
-          <span class="role">Trasforma gli aggregati in 5-7 insight strutturati con severità</span>
-          <span class="model sonnet">Sonnet</span>
-        </div>
-        <div class="arrow-down">↓</div>
-        <div class="stage">
-          <span class="num">05</span>
-          <span class="name">EducationalCoach</span>
-          <span class="role">Narra gli insight in linguaggio semplice e risponde in chat, senza mai consigliare</span>
-          <span class="model sonnet">Sonnet</span>
-        </div>
-      </div>
-
-      <h4>Due canali, stesso backend</h4>
-      <div class="channels">
-        <div class="channel">
-          <span class="ico">💬</span>
-          <h5>Telegram Bot</h5>
-          <p>Manda l'estratto conto al bot, ricevi il link alla dashboard e chatti con il coach direttamente lì.</p>
-        </div>
-        <div class="channel">
-          <span class="ico">📊</span>
-          <h5>Web Dashboard</h5>
-          <p>Upload da browser, progress in tempo reale (SSE) dei 5 agenti, dashboard con grafici e chat integrata.</p>
+        <div>
+          <h4>Cosa ottieni</h4>
+          <ul class="bullets ok-list">
+            <li>Una fotografia chiara delle tue spese, mese per mese</li>
+            <li>Le spese "invisibili" — abbonamenti, commissioni — messe in luce</li>
+            <li>Un linguaggio semplice invece di gergo bancario</li>
+            <li>Ogni importo resta verificabile: nulla viene alterato o nascosto</li>
+          </ul>
         </div>
       </div>
     </section>
@@ -299,74 +230,66 @@
     <!-- 4. Guardrail -->
     <section>
       <header class="sec-head">
-        <span class="sec-num">04 · Guardrail</span>
-        <h2>Educazione, non consulenza</h2>
+        <span class="sec-num">04 · Educazione, non consulenza</span>
+        <h2>Ti spieghiamo, non decidiamo per te</h2>
       </header>
       <div class="cols">
         <div>
           <h4>Cosa facciamo</h4>
           <ul class="bullets ok-list">
             <li>Spieghiamo concetti finanziari di base in linguaggio semplice</li>
-            <li>Confrontiamo i pattern di spesa con benchmark ISTAT pubblici</li>
-            <li>Proponiamo opzioni generiche e non prescrittive ("alcune famiglie trovano utile...")</li>
-            <li>Mostriamo sempre gli importi originali, verificabili nel dettaglio transazioni</li>
+            <li>Confrontiamo le tue abitudini con la media delle famiglie italiane</li>
+            <li>Proponiamo opzioni generiche e non vincolanti ("alcune famiglie trovano utile...")</li>
           </ul>
         </div>
         <div>
           <h4>Cosa evitiamo</h4>
           <ul class="bullets avoid-list">
-            <li>Raccomandazioni di investimento o consulenza personalizzata</li>
-            <li>Chatbot finanziario generico senza logica applicativa</li>
-            <li>Semplificazioni che alterano il significato dei dati originali</li>
-            <li>Target di risparmio prescrittivi al posto di riferimenti educativi</li>
+            <li>Consigli di investimento o indicazioni su cosa comprare, vendere o scegliere</li>
+            <li>Un chatbot generico che parla di tutto senza aiutarti davvero</li>
+            <li>Semplificazioni che cambiano il significato dei tuoi dati reali</li>
           </ul>
         </div>
       </div>
       <div class="guard">
-        <h4>Verifica in demo</h4>
-        <p style="margin:0;color:rgba(255,255,255,0.75);font-size:14px;">Alla domanda <em>"dove dovrei investire i miei risparmi?"</em> il coach non risponde con consigli finanziari, ma richiama il proprio ruolo educativo e rimanda a un professionista.</p>
+        <h4>Se chiedi consigli di investimento</h4>
+        <p style="margin:0;color:rgba(255,255,255,0.75);font-size:14px;">L'assistente non risponde con indicazioni finanziarie: ti ricorda il proprio ruolo educativo e ti invita a parlare con un consulente abilitato, restando disponibile a spiegarti le tue abitudini di spesa.</p>
       </div>
     </section>
 
-    <!-- 5. Deliverable -->
+    <!-- 5. Risultati attesi -->
     <section>
       <header class="sec-head">
-        <span class="sec-num">05 · Deliverable per la challenge</span>
-        <h2>I tre deliverable richiesti dal Tema 02</h2>
+        <span class="sec-num">05 · Risultati attesi</span>
+        <h2>Cosa cambia per chi usa la webapp</h2>
       </header>
-      <div class="deliverables">
-        <div class="deliverable">
-          <span class="d-num">01</span>
-          <h5>User Difficulty Statement</h5>
-          <p>Famiglia Moretti non distingue spese fisse da variabili, non nota gli abbonamenti accumulati e non ha mai confrontato la propria spesa con una media di riferimento.</p>
+      <p class="lead" style="margin-bottom:20px;">L'obiettivo non è un numero in più su un grafico, ma una famiglia che per la prima volta capisce le proprie abitudini di spesa e si sente più sicura nel gestirle.</p>
+      <div class="outcomes">
+        <div class="outcome">
+          <div class="big">Consapevolezza</div>
+          <div class="cap">Da un estratto conto illeggibile a una visione chiara di dove va ogni euro, categoria per categoria e mese per mese.</div>
         </div>
-        <div class="deliverable">
-          <span class="d-num">02</span>
-          <h5>Before / After Simplicity Evidence</h5>
-          <p>Estratto conto tabellare grezzo (80 righe criptiche) → dashboard con donut chart categorizzato, trend a 3 mesi, savings meter educativo.</p>
+        <div class="outcome">
+          <div class="big">Spese invisibili</div>
+          <div class="cap">Abbonamenti dimenticati e commissioni ricorrenti emergono da soli, invece di restare nascosti tra centinaia di righe.</div>
         </div>
-        <div class="deliverable">
-          <span class="d-num">03</span>
-          <h5>Risk &amp; Clarity Note</h5>
-          <p>Benchmark ISTAT pubblici, opzioni generiche mai prescrittive, importi originali sempre verificabili nel tab dettaglio.</p>
+        <div class="outcome">
+          <div class="big">Un termine di paragone</div>
+          <div class="cap">Per la prima volta la famiglia sa se le proprie spese sono in linea con altre famiglie italiane simili, senza sentirsi giudicata.</div>
+        </div>
+        <div class="outcome">
+          <div class="big">Educazione, non ansia</div>
+          <div class="cap">I concetti finanziari di base diventano comprensibili, spiegati sui propri numeri reali invece che in astratto.</div>
+        </div>
+        <div class="outcome">
+          <div class="big">Decisioni più informate</div>
+          <div class="cap">La famiglia resta libera di scegliere cosa fare, ma lo fa sapendo cosa sta succedendo ai propri soldi.</div>
+        </div>
+        <div class="outcome">
+          <div class="big">Fiducia nel tempo</div>
+          <div class="cap">Tornando ogni mese, la famiglia costruisce l'abitudine di guardare le proprie finanze invece di evitarle.</div>
         </div>
       </div>
-    </section>
-
-    <!-- 6. Tech stack -->
-    <section class="plain">
-      <header class="sec-head">
-        <span class="sec-num">06 · Stack tecnico</span>
-        <h2>Cosa costruiamo nelle 5 ore</h2>
-      </header>
-      <table class="stack-table">
-        <tr><td>Backend</td><td>Python 3.12, FastAPI, aiosqlite</td></tr>
-        <tr><td>PDF parsing</td><td>pdfplumber</td></tr>
-        <tr><td>AI</td><td>Anthropic SDK — claude-haiku-4-5 (parsing/categorizzazione), claude-sonnet-4-5 (analisi/insight/coach)</td></tr>
-        <tr><td>Telegram</td><td>aiogram 3.x (polling)</td></tr>
-        <tr><td>Frontend</td><td>Next.js 14, TypeScript, Tailwind CSS, Recharts</td></tr>
-        <tr><td>Deploy</td><td>Backend su Railway, Frontend su Vercel</td></tr>
-      </table>
     </section>
 
     <footer>
