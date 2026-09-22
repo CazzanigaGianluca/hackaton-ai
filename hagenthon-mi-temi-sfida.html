@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Hagenthon · Temi della sfida</title>
+<style>
+  :root {
+    --purple: #A100FF;
+    --purple-light: #BE82FF;
+    --purple-dark: #460073;
+    --ink: #0A0014;
+    --rose: #FF50A0;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: #050008;
+    color: #fff;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 48px 24px 80px; }
+  .brand {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 16px; margin-bottom: 40px;
+  }
+  .brand .logo { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; }
+  .brand .logo .mark { color: var(--purple); }
+  .brand .org { text-align: right; font-size: 10px; line-height: 1.4; }
+  .brand .org .a { color: var(--purple-light); text-transform: uppercase; letter-spacing: 0.25em; font-weight: 600; }
+  .brand .org .b { color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.2em; }
+  .hero { text-align: center; margin-bottom: 56px; }
+  .hero .eyebrow {
+    display: inline-block; border: 1px solid rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.05); border-radius: 999px;
+    padding: 6px 16px; font-size: 11px; text-transform: uppercase;
+    letter-spacing: 0.25em; color: rgba(255,255,255,0.7);
+  }
+  .hero h1 { font-size: 40px; font-weight: 700; letter-spacing: -0.02em; margin: 20px 0 12px; }
+  .hero h1 .grad {
+    background: linear-gradient(90deg, var(--purple-light), var(--purple));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .hero p { max-width: 620px; margin: 0 auto; color: rgba(255,255,255,0.65); }
+  .theme {
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 18px;
+    background: rgba(255,255,255,0.02);
+    padding: 32px;
+    margin-bottom: 40px;
+  }
+  .theme-head { border-bottom: 1px solid rgba(161,0,255,0.25); padding-bottom: 16px; margin-bottom: 20px; }
+  .theme-num { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.25em; color: var(--purple-light); }
+  .theme-head h2 { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; margin: 6px 0 0; }
+  .objective { font-size: 17px; color: rgba(255,255,255,0.85); }
+  .focus { font-style: italic; color: rgba(255,255,255,0.5); font-size: 14px; }
+  .challenge {
+    border: 1px solid rgba(161,0,255,0.25);
+    background: rgba(161,0,255,0.06);
+    border-radius: 12px; padding: 18px 20px; margin: 22px 0;
+  }
+  h3 { font-size: 12px; text-transform: uppercase; letter-spacing: 0.2em; color: var(--purple-light); margin: 0 0 8px; }
+  h4 { font-size: 12px; text-transform: uppercase; letter-spacing: 0.2em; color: rgba(255,255,255,0.4); margin: 24px 0 12px; }
+  .challenge p { margin: 0; color: rgba(255,255,255,0.85); }
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  .bullets { list-style: none; padding: 0; margin: 0; }
+  .bullets li { position: relative; padding-left: 20px; color: rgba(255,255,255,0.72); margin-bottom: 8px; }
+  .bullets li::before { content: "›"; position: absolute; left: 0; color: var(--purple); font-weight: 700; }
+  .avoid-list li::before { content: "×"; color: var(--rose); }
+  .deliverables { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .deliverable { border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03); border-radius: 12px; padding: 16px; }
+  .d-num { font-size: 13px; font-weight: 700; color: var(--purple-light); }
+  .deliverable h5 { font-size: 14px; font-weight: 600; margin: 6px 0 6px; }
+  .deliverable p { font-size: 13px; color: rgba(255,255,255,0.55); margin: 0; }
+  .avoid {
+    border: 1px solid rgba(255,80,160,0.2);
+    background: rgba(255,80,160,0.05);
+    border-radius: 12px; padding: 18px 20px; margin-top: 24px;
+  }
+  .avoid h4 { color: rgba(255,80,160,0.8); margin-top: 0; }
+  footer { text-align: center; margin-top: 40px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.2em; color: rgba(255,255,255,0.25); }
+  footer .mark { color: var(--purple); }
+  @media (max-width: 640px) {
+    .cols, .deliverables { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 30px; }
+  }
+  @media print {
+    body { background: #fff; color: #111; }
+    .theme { break-inside: avoid; border-color: #ddd; background: #fff; }
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="brand">
+      <span class="logo">Hagenthon<span class="mark">&gt;</span></span>
+      <span class="org">
+        <span class="a">Accenture</span><br />
+        <span class="b">Application Engineering</span>
+      </span>
+    </div>
+
+    <div class="hero">
+      <span class="eyebrow">Temi della sfida</span>
+      <h1>Hackathon <span class="grad">Agentic Coding</span></h1>
+      <p>Scegliete uno dei tre temi, definite un problema specifico, costruite un prototipo e preparate la demo finale.</p>
+    </div>
+
+    
+  <article class="theme">
+    <header class="theme-head">
+      <span class="theme-num">Tema 01</span>
+      <h2>Accessibilità Digitale</h2>
+    </header>
+
+    <p class="objective">Usare strumenti di agentic coding per costruire qualcosa che aiuti davvero una persona con una disabilità, una fragilità o una difficoltà a usare un servizio digitale che oggi, da sola, non riesce a usare bene.</p>
+    <p class="focus">Il focus non è l’audit tecnico del codice né la conformità formale alle linee guida: è la persona. La soluzione deve mettersi accanto a chi ha la difficoltà e aiutarlo a capire, orientarsi, compilare, decidere e portare a termine ciò che stava provando a fare.</p>
+
+    <div class="challenge">
+      <h3>La challenge</h3>
+      <p>In team da 2 persone, avete 5 ore di sviluppo per progettare e realizzare uno strumento che affianchi una persona con una difficoltà precisa mentre usa un servizio digitale reale, e le permetta di arrivare fino in fondo al suo obiettivo.</p>
+    </div>
+
+    <div class="cols">
+      <div>
+        <h4>Esempi di soluzioni possibili</h4>
+        <ul class="bullets "><li>un assistente che riscrive una pagina o un documento complesso nel linguaggio e nel formato di cui quella persona ha bisogno</li><li>una guida che accompagna passo passo la compilazione di un modulo online, un campo alla volta, spiegando cosa serve davvero</li><li>uno strumento che racconta a parole il contenuto di una schermata, di un’immagine o di un grafico a chi non può vederlo</li><li>un aiuto che traduce un messaggio di errore o una richiesta burocratica in parole semplici e indica qual è il passo successivo</li><li>un’interfaccia alternativa e semplificata di un servizio esistente, adattata a chi ha difficoltà motorie, visive o cognitive</li><li>un supporto che alleggerisce il carico di lettura: sintesi, evidenziazione dell’essenziale, suddivisione in passi brevi</li><li>un compagno che si accorge quando l’utente si blocca o sbaglia e interviene con un suggerimento mirato</li></ul>
+      </div>
+      <div>
+        <h4>Vincoli specifici</h4>
+        <ul class="bullets "><li>Partire da una persona concreta e da una difficoltà precisa: chi è, cosa sta cercando di fare, dove si blocca oggi.</li><li>Lavorare su un servizio o un contenuto digitale reale o realistico: un sito pubblico, un modulo, una bolletta, un’app, una procedura online.</li><li>La soluzione deve poter essere usata dalla persona stessa, non solo da uno sviluppatore o da un tecnico.</li><li>Semplificare senza tradire: il significato delle informazioni originali non deve cambiare.</li><li>Mostrare in demo il percorso dell’utente prima e dopo: cosa non riusciva a fare e cosa riesce a fare adesso.</li><li>Indicare dove l’AI ha contribuito e dove è stata necessaria revisione umana.</li></ul>
+      </div>
+    </div>
+
+    <div>
+      <h4>Deliverable specifici</h4>
+      <div class="deliverables">
+        
+        <div class="deliverable">
+          <span class="d-num">01</span>
+          <h5>Persona &amp; Barriera</h5>
+          <p>Chi state aiutando, quale barriera incontra e in quale momento esatto del suo percorso si ferma.</p>
+        </div>
+        <div class="deliverable">
+          <span class="d-num">02</span>
+          <h5>Percorso Assistito</h5>
+          <p>La demo del percorso completo: dal punto in cui la persona si bloccava fino al task portato a termine con il supporto della soluzione.</p>
+        </div>
+        <div class="deliverable">
+          <span class="d-num">03</span>
+          <h5>Autonomia &amp; Limiti</h5>
+          <p>Quanta autonomia guadagna la persona, cosa è stato semplificato senza alterarne il senso e quali limiti restano.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="avoid">
+      <h4>Cosa evitare</h4>
+      <ul class="bullets avoid-list"><li>strumenti pensati per gli sviluppatori invece che per la persona con la difficoltà</li><li>checker di conformità che producono solo report tecnici</li><li>soluzioni che si fermano alla diagnosi del problema senza aiutare nessuno a superarlo</li><li>restyling grafici che non fanno guadagnare autonomia</li><li>profili utente generici: “un utente disabile” non è un profilo</li><li>uso dell’AI non spiegabile dal team</li></ul>
+    </div>
+  </article>
+
+  <article class="theme">
+    <header class="theme-head">
+      <span class="theme-num">Tema 02</span>
+      <h2>Inclusione Finanziaria</h2>
+    </header>
+
+    <p class="objective">Usare strumenti di agentic coding per supportare l'educazione alla finanza personale di base, aiutando le persone con bassa alfabetizzazione finanziaria a comprendere concetti e gestire meglio le proprie finanze quotidiane.</p>
+    <p class="focus">Il focus non è creare un consulente finanziario AI, ma supportare l'educazione alla finanza personale di base: aiutare le persone a comprendere concetti, gestire le proprie finanze quotidiane e prendere decisioni informate.</p>
+
+    <div class="challenge">
+      <h3>La challenge</h3>
+      <p>In team da 2 persone, avete 5 ore di sviluppo per progettare e realizzare una soluzione che utilizzi strumenti di agentic coding per supportare l'educazione alla finanza personale di base, rendendo concetti e gestione del denaro più comprensibili e accessibili.</p>
+    </div>
+
+    <div class="cols">
+      <div>
+        <h4>Esempi di soluzioni possibili</h4>
+        <ul class="bullets "><li>uno strumento che spiega in linguaggio semplice concetti finanziari di base (interesse, tasso, inflazione, rata, TAEG)</li><li>un coach che aiuta a costruire e capire un budget personale o a tenere traccia delle spese</li><li>un simulatore che mostra l'impatto di scelte quotidiane (risparmio, spese ricorrenti, rate) nel tempo</li><li>un assistant che traduce il gergo di estratti conto, bollette o documenti finanziari in concetti chiari</li><li>un percorso di micro-lezioni adattate al livello di alfabetizzazione finanziaria dell'utente</li><li>un quiz interattivo con feedback che rafforza la comprensione di concetti finanziari di base</li></ul>
+      </div>
+      <div>
+        <h4>Vincoli specifici</h4>
+        <ul class="bullets "><li>Selezionare uno scenario educativo preciso: comprensione di un concetto finanziario di base, gestione del budget personale, lettura di un estratto conto o di una bolletta, comprensione di costi e commissioni o simulazione di una scelta quotidiana di risparmio.</li><li>Dimostrare un miglioramento tangibile nella comprensione o nella capacità dell'utente di gestire le proprie finanze.</li><li>Vietato fornire raccomandazioni di investimento, consulenza finanziaria personalizzata o indicazioni su cosa comprare, vendere o scegliere.</li><li>Includere una capability software concreta, non solo una riscrittura di testi.</li></ul>
+      </div>
+    </div>
+
+    <div>
+      <h4>Deliverable specifici</h4>
+      <div class="deliverables">
+        
+        <div class="deliverable">
+          <span class="d-num">01</span>
+          <h5>User Difficulty Statement</h5>
+          <p>Quale difficoltà ha l'utente, in quale processo e perché è rilevante.</p>
+        </div>
+        <div class="deliverable">
+          <span class="d-num">02</span>
+          <h5>Before / After Simplicity Evidence</h5>
+          <p>Un esempio di testo, flusso, schermata o istruzione resa più chiara.</p>
+        </div>
+        <div class="deliverable">
+          <span class="d-num">03</span>
+          <h5>Risk &amp; Clarity Note</h5>
+          <p>Cosa è stato semplificato, cosa non è stato alterato e come è stata evitata ambiguità.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="avoid">
+      <h4>Cosa evitare</h4>
+      <ul class="bullets avoid-list"><li>chatbot generici</li><li>pura riscrittura di testi senza logica applicativa</li><li>soluzioni che danno consigli finanziari</li><li>semplificazioni che cambiano il significato originale</li><li>demo non collegate a un processo reale</li></ul>
+    </div>
+  </article>
+
+  <article class="theme">
+    <header class="theme-head">
+      <span class="theme-num">Tema 03</span>
+      <h2>Educazione Digitale Inclusiva</h2>
+    </header>
+
+    <p class="objective">Usare strumenti di agentic coding per abbassare le barriere di accesso all'apprendimento digitale, aiutando persone che partono da una situazione di svantaggio.</p>
+    <p class="focus">Riguarda utenti con bassa alfabetizzazione digitale, difficoltà cognitive o linguistiche, DSA, anziani, lavoratori in riqualificazione o persone che devono imparare a usare strumenti digitali essenziali. Il focus non è creare contenuti formativi generici, ma supportare un percorso di apprendimento inclusivo in uno scenario concreto.</p>
+
+    <div class="challenge">
+      <h3>La challenge</h3>
+      <p>In team da 2 persone, avete 5 ore di sviluppo per progettare e realizzare una soluzione che utilizzi strumenti di agentic coding per rendere più accessibile, comprensibile o personalizzato un percorso di apprendimento digitale per utenti con difficoltà.</p>
+    </div>
+
+    <div class="cols">
+      <div>
+        <h4>Esempi di soluzioni possibili</h4>
+        <ul class="bullets "><li>un generatore di micro-lezioni adattate al livello dell'utente</li><li>una guida passo-passo per usare uno strumento digitale reale</li><li>un helper per lettura, comprensione, glossario o sintesi</li><li>un motore di quiz con feedback personalizzato</li><li>un coach che rileva dove l'utente si blocca</li><li>uno strumento multilingua per spiegare termini digitali o istituzionali</li></ul>
+      </div>
+      <div>
+        <h4>Vincoli specifici</h4>
+        <ul class="bullets "><li>Scegliere un profilo utente preciso: una persona anziana, con bassa alfabetizzazione digitale, con difficoltà linguistiche, con DSA, un lavoratore in riqualificazione o un nuovo utente di un processo digitale.</li><li>Lavorare su uno scenario di apprendimento concreto, non astratto.</li><li>Dimostrare un miglioramento misurabile in almeno uno tra: comprensione, autonomia, completamento del task, riduzione degli errori, capacità di ripetere un'azione.</li><li>Vietato presentare temi sensibili (sanità clinica, fiscalità personalizzata, ambito legale) come consigli professionali.</li><li>Includere almeno una capability agentica concreta: adattamento dinamico, valutazione della comprensione, percorso personalizzato, rilevamento del blocco o feedback mirato sugli errori.</li></ul>
+      </div>
+    </div>
+
+    <div>
+      <h4>Deliverable specifici</h4>
+      <div class="deliverables">
+        
+        <div class="deliverable">
+          <span class="d-num">01</span>
+          <h5>Learner Profile Statement</h5>
+          <p>Chi è l'utente target, quale difficoltà ha e in quale scenario.</p>
+        </div>
+        <div class="deliverable">
+          <span class="d-num">02</span>
+          <h5>Adaptive Evidence</h5>
+          <p>Un esempio concreto di come la soluzione cambia in base al livello o al bisogno dell'utente.</p>
+        </div>
+        <div class="deliverable">
+          <span class="d-num">03</span>
+          <h5>Learning Outcome Note</h5>
+          <p>Cosa l'utente sa fare alla fine che prima non sapeva fare, e come è stato verificato.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="avoid">
+      <h4>Cosa evitare</h4>
+      <ul class="bullets avoid-list"><li>generatori generici di lezioni</li><li>tutor conversazionali aperti senza percorso strutturato</li><li>pura traduzione automatica</li><li>soluzioni non collegate a un utente fragile specifico</li><li>contenuti sensibili trattati come consulenza</li></ul>
+    </div>
+  </article>
+
+    <footer>
+      Hagenthon <span class="mark">&gt;</span> Accenture Application Engineering &middot; generato il 22 settembre 2026
+    </footer>
+  </div>
+</body>
+</html>
