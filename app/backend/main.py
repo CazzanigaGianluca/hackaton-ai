@@ -3,16 +3,7 @@
 from __future__ import annotations
 
 import os
-import sys
 from contextlib import asynccontextmanager
-from pathlib import Path
-
-# Garantisce che il package top-level `agents/` sia importabile sia quando
-# l'app viene lanciata da app/backend (`uvicorn main:app`) sia dalla root
-# del repo (`uvicorn app.backend.main:app`).
-_REPO_ROOT = Path(__file__).resolve().parents[2]
-if str(_REPO_ROOT) not in sys.path:
-    sys.path.insert(0, str(_REPO_ROOT))
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware

@@ -14,10 +14,10 @@ from pathlib import Path
 
 from pydantic import ValidationError
 
-from agents.data_analyzer import CATEGORY_TO_ISTAT_KEY
+from app.backend.agents.data_analyzer import CATEGORY_TO_ISTAT_KEY
 from app.backend.models import Insight
 
-_ISTAT_PATH = Path(__file__).resolve().parent.parent / "data" / "istat_benchmarks.json"
+_ISTAT_PATH = Path(__file__).resolve().parents[3] / "data" / "istat_benchmarks.json"
 
 MAX_INSIGHTS = 7
 

@@ -1,6 +1,6 @@
 from datetime import date
 
-from agents.categorizer import (
+from app.backend.agents.categorizer import (
     CategorizerAgent,
     categorize_transactions,
     classify_by_keyword,

@@ -9,10 +9,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 python -m pytest
 
 # Run a single test file
-python -m pytest agents/tests/test_categorizer.py -v
+python -m pytest app/backend/agents/tests/test_categorizer.py -v
 
 # Run a single test by name
-python -m pytest agents/tests/test_categorizer.py::test_classify_by_keyword_matches_known_merchant -v
+python -m pytest app/backend/agents/tests/test_categorizer.py::test_classify_by_keyword_matches_known_merchant -v
 
 # Lint and format
 ruff check . --fix
@@ -33,7 +33,7 @@ This is an AI-powered personal finance app (Inclusione Finanziaria) that analyze
 
 1. User uploads one or more Estratti Conto (CSV or PDF) via `POST /api/analyze`
 2. The route creates a SQLite **Sessione** and streams SSE progress events back to the frontend
-3. **Orchestrator** (`agents/orchestrator.py`) drives 5 agents in sequence:
+3. **Orchestrator** (`app/backend/agents/orchestrator.py`) drives 5 agents in sequence:
    - **DocumentParser** → extracts Transazioni from raw files
    - **Categorizer** → assigns a Categoria to each Transazione (keyword lookup first, LLM fallback)
    - **DataAnalyzer** → computes Pattern di Spesa statistics (pure Python, no LLM)
@@ -78,7 +78,7 @@ Single SQLite file (`sessions.db`, path overridable via `DATABASE_PATH` env var)
 
 ## Testing conventions
 
-- Tests live next to the code they test: `agents/tests/`, `app/backend/tests/`
+- Tests live next to the code they test: `app/backend/agents/tests/`, `app/backend/tests/`
 - `pytest-asyncio` is in `auto` mode — async test functions need no decorator
 - **LLM is stubbed with inline classes, not `unittest.mock`** (see `test_categorizer.py` for the pattern)
 - Backend integration tests use `httpx.AsyncClient` with `ASGITransport` and a temp SQLite DB via `monkeypatch` on `database.DATABASE_PATH`
@@ -93,3 +93,13 @@ Three project-specific Claude Code skills are in `.claude/skills/`:
 | generate | `/generate <description>` | Generates code following project conventions |
 | review | `/review [file\|PR]` | Security → correctness → conventions review, report only |
 | test | `/test <file>` | Generates tests, runs pytest, iterates up to 3 times |
+
+## Mandatory skill workflow
+
+**ALWAYS** invoke these three skills — in this exact order — whenever you create or modify any feature, agent, route, component, or module:
+
+1. `/generate <description>` — before writing new code, use this skill to generate it following project conventions
+2. `/test <file>` — after code is written, generate and run tests for every modified file; iterate until all pass
+3. `/review <file>` — after tests pass, run the review skill on every modified file and fix any findings before reporting the task as done
+
+No exception: even a one-line fix requires `/test` and `/review` on the affected file. If you skip any of these three steps, the task is not complete.

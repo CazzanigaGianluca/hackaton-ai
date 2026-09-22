@@ -13,7 +13,7 @@ import uuid
 from fastapi import APIRouter, File, UploadFile
 from fastapi.responses import StreamingResponse
 
-from agents.orchestrator import Orchestrator
+from app.backend.agents.orchestrator import Orchestrator
 from app.backend import database
 from app.backend.llm import get_llm_client
 

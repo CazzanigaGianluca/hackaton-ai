@@ -8,7 +8,7 @@ from __future__ import annotations
 
 from fastapi import APIRouter, HTTPException
 
-from agents.educational_coach import EducationalCoachAgent
+from app.backend.agents.educational_coach import EducationalCoachAgent
 from app.backend import database
 from app.backend.llm import get_llm_client
 from app.backend.models import CoachRequest, Insight

@@ -10,11 +10,11 @@ from collections.abc import AsyncIterator
 from dataclasses import dataclass, field
 from typing import Any
 
-from agents.categorizer import CategorizerAgent
-from agents.data_analyzer import DataAnalyzerAgent
-from agents.document_parser import DocumentParserAgent
-from agents.educational_coach import EducationalCoachAgent
-from agents.insight_generator import InsightGeneratorAgent
+from app.backend.agents.categorizer import CategorizerAgent
+from app.backend.agents.data_analyzer import DataAnalyzerAgent
+from app.backend.agents.document_parser import DocumentParserAgent
+from app.backend.agents.educational_coach import EducationalCoachAgent
+from app.backend.agents.insight_generator import InsightGeneratorAgent
 from app.backend.models import Insight, Transaction
 
 PIPELINE_STAGES = [

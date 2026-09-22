@@ -13,7 +13,7 @@ from pathlib import Path
 
 from app.backend.models import Transaction, TransactionType
 
-_ISTAT_PATH = Path(__file__).resolve().parent.parent / "data" / "istat_benchmarks.json"
+_ISTAT_PATH = Path(__file__).resolve().parents[3] / "data" / "istat_benchmarks.json"
 
 _WEEKDAY_NAMES_IT = [
     "Lunedì",

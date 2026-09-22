@@ -1,4 +1,4 @@
-from agents.insight_generator import InsightGeneratorAgent, generate_insights_fallback
+from app.backend.agents.insight_generator import InsightGeneratorAgent, generate_insights_fallback
 
 ANALYSIS = {
     "by_category": {

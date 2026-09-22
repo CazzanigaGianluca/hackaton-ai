@@ -1,6 +1,6 @@
 import pytest
 
-from agents.document_parser import extract_transactions_from_rows, parse_csv
+from app.backend.agents.document_parser import extract_transactions_from_rows, parse_csv
 
 SAMPLE_CSV = """Data,Descrizione,Importo,Valuta
 15/01/2025,CONAD SUPERMERCATI,-85.40,EUR

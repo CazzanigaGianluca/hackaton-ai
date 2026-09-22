@@ -2,9 +2,9 @@ from pathlib import Path
 
 import pytest
 
-from agents.orchestrator import PIPELINE_STAGES, Orchestrator
+from app.backend.agents.orchestrator import PIPELINE_STAGES, Orchestrator
 
-SAMPLE_DIR = Path(__file__).resolve().parent.parent.parent / "data" / "sample"
+SAMPLE_DIR = Path(__file__).resolve().parents[4] / "data" / "sample"
 
 
 def _load_sample_files() -> list[tuple[str, bytes]]:

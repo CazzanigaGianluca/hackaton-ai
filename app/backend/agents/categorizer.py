@@ -14,7 +14,7 @@ from pathlib import Path
 
 from app.backend.models import Category, Transaction, TransactionType
 
-_CATEGORIES_PATH = Path(__file__).resolve().parent.parent / "data" / "categories.json"
+_CATEGORIES_PATH = Path(__file__).resolve().parents[3] / "data" / "categories.json"
 
 
 def _load_keyword_map() -> dict[str, list[str]]:

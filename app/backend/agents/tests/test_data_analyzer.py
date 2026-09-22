@@ -1,6 +1,6 @@
 from datetime import date
 
-from agents.data_analyzer import compute_aggregates
+from app.backend.agents.data_analyzer import compute_aggregates
 from app.backend.models import Transaction, TransactionType
 
 

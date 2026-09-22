@@ -1,4 +1,4 @@
-from agents.educational_coach import (
+from app.backend.agents.educational_coach import (
     DEFLECTION_MESSAGE,
     EducationalCoachAgent,
     is_investment_advice_request,
